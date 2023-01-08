@@ -51,12 +51,14 @@ const Home = () => {
             onChange={onUserChangedText}
           />
           <div className="prompt-buttons">
-            <a className="generate-button" onClick={callGenerateEndpoint}>
-              <div className="generate">
-                <p>Generate</p>
-              </div>
-            </a>
-          </div>
+          < button
+           className={isGenerating ? 'generate-button loading' : 'generate-button'}
+           onClick={callGenerateEndpoint}
+           >
+           {isGenerating ? <span className="loader"></span> : <p>Generate</p>}
+           </button>
+         </div>
+
           {/* New code I added here */}
           {apiOutput && (
             <div className="output">

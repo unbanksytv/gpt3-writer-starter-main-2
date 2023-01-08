@@ -19,7 +19,7 @@ const generateAction = async (req, res) => {
     model: 'text-davinci-003',
     prompt: `${basePromptPrefix}${req.body.userInput}`,
     temperature: 0.8,
-    max_tokens: 250,
+    max_tokens: 600,
   });
   
   const basePromptOutput = baseCompletion.data.choices.pop();
@@ -27,7 +27,7 @@ const generateAction = async (req, res) => {
   // I build Prompt #2.
   const secondPrompt = 
   `
-  My first suggestion request is "I am in Bordeaux and I want to visit museums, enjoy fine dinging, and a place to sleep, with the preference for a 5-star hotel."
+  Based on the desired destination the users has provided, I want to know the nearby museums, get 3 recommendations for fine dinging, and a place to sleep, with the preference for a 5-star hotel."
 
   Destination: ${req.body.userInput}
 

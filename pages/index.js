@@ -37,7 +37,7 @@ const Home = () => {
       <div className="container">
         <div className="header">
           <div className="header-title">
-            <h1>LIVE THE LIFE</h1>
+            <h1>LIVE THE LIFE TV</h1>
           </div>
           <div className="header-subtitle">
             <h2>WHERE WOULD YOU LIKE TO LTL?</h2>

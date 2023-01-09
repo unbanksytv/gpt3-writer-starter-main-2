@@ -30,13 +30,19 @@ const generateAction = async (req, res) => {
   // I build Prompt #2.
   const secondPrompt = 
   `
-  What are the nearby museums, get 3 recommendations for fine dining, and a place to sleep, with the preference for a 5-star hotel."
+  What are the top 3 museums nearby, get 3 recommendations for fine dining, and recommend 3 places to sleep, with the preference for a 5-star hotel."
 
   Destination: ${req.body.userInput}
 
   Recommendation: ${basePromptOutput.text}
 
-  Results: 
+  Results: answer in an editorial manner
+
+  Example: Biarritz, located on the southwestern coast of France in the Basque Country, is a renowned destination for both its beautiful beaches and its thriving culture and cuisine. Visitors to the area will find a range of fine dining options, from the Michelin-starred La Table de Lili to the elegant La Scène.
+
+  For those interested in the arts and history, Biarritz offers a number of museums to explore, including the Musée de la Mer, which focuses on the region's maritime heritage, and the Musée Asiatica, which houses a collection of Asian art and artifacts.
+  
+  Surfers will find plenty of opportunities to ride the waves at popular spots such as Côte des Basques and Plage de la Milady, while those looking to relax in luxury can choose from a selection of 5-star hotels, including the iconic Hôtel du Palais and the spa-focused Les Bains de L'Océan.
   `
   
   // I call the OpenAI API a second time with Prompt #2

@@ -7,9 +7,12 @@ const configuration = new Configuration({
 const openai = new OpenAIApi(configuration);
 const basePromptPrefix =
 `
-I want you to act as a travel guide. I will write you my location and you will suggest a 5-star hotel and a gastronomic restaurant to visit near my location. In some cases, I will also give you the type of places I will visit. For example a surfing beach. You will also suggest me places of similar type that are close to my first location.
+The following is a conversation with an travel assistant. The assistant is helpful, creative, clever, and very friendly.\n\nHuman: Where would you like to go?\nAI: I am an AI travel agent created by OpenAI. How can I help you today?\nHuman: I'd like to find a 5-star hotel, a couple of gastronomic restaurant to eat, some musea nearby, the nearby surf spots, and general recommendations about the destination.\nAI:.
 
-Destination:
+You: What have you been up to?
+Friend: Watching old movies.
+You: Did you watch anything interesting?
+Friend:
 `
 
 const generateAction = async (req, res) => {
@@ -27,13 +30,13 @@ const generateAction = async (req, res) => {
   // I build Prompt #2.
   const secondPrompt = 
   `
-  Based on the desired destination the users has provided, I want to know the nearby museums, get 3 recommendations for fine dinging, and a place to sleep, with the preference for a 5-star hotel."
+  What are the nearby museums, get 3 recommendations for fine dining, and a place to sleep, with the preference for a 5-star hotel."
 
   Destination: ${req.body.userInput}
 
   Recommendation: ${basePromptOutput.text}
 
-  Results:
+  Results: 
   `
   
   // I call the OpenAI API a second time with Prompt #2
